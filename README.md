@@ -1,19 +1,12 @@
 PrepEase
 
 steps for beginning backend
-    -installation (in terminal)
+    -installation(in terminal)
         -installing node.js
-            winget install Schniz.fnm
+            wingnet install Schnix.fnm
 
             fnm install 22
 
-            # Verify the Node.js version:
-            node -v # Should print "v22.14.0".
-
-            # Verify npm version:
-            npm -v # Should print "10.9.2".
-
-        
         -installing express, ejs, nodemon
             npm i express
             npm i --save-dev nodemon
