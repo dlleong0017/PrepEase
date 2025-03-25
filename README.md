@@ -1,4 +1,4 @@
-#PrepEase
+PrepEase
 
 steps for beginning backend
     -installation (in terminal)
