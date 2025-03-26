@@ -5,10 +5,6 @@ router.get("/", (req,res) => {
     res.send("User List")
 })
 
-router.get("/reg", (req,res) => {
-    res.render("user/regview")
-})
-
 router.post("/", (req,res) => {
     console.log(req.body.username)
     res.send("hi")
@@ -17,7 +13,7 @@ router.post("/", (req,res) => {
 //dynamic routes
 
     //page for specific user
-    .route("/:id")
+    router.route("/:id")
         .get((req, res) => {
             res.send(`Get user with ID ${req.params.id}`)
         })
@@ -27,6 +23,5 @@ router.post("/", (req,res) => {
         .delete((req, res) => {
             res.send(`Delete user with ID ${req.params.id}`)
         })
-    router
 
 module.exports = router

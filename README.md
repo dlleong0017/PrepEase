@@ -1,25 +1,29 @@
-```
 # PrepEase
 
-steps for beginning backend 
-    -installation(in terminal) 
-        -installing node.js
-            winget install Schniz.fnm
-            fnm install 22
-            node -v     # Should print "v22.14.0"
-            npm -v      # Should print "10.9.2"
+### starting the program
+clone the repo
 
-         -installing express, ejs, nodemon
-            npm i express
-            npm i --save-dev nodemon
-            npm i ejs
+in the repo folder
 
-    -running current files
-        npm run start
+    cd server
+    npm install
+    cd ..
+    cd client
+    npm install
 
-        type "localhost:3000" in browser
-        the default page should be "Welcome to PrepEase"
+this installs all of the packages that are necessary so that you have everything
 
-        added a basic username and password input with no connection
-        go to: localhost:3000/user/reg
-```
+### running program
+open a terminal and go into the server(backend)
+
+    cd server
+    npm start
+
+this starts the backend
+
+open a terminal and go into the client(frontend)
+
+    cd client
+    npm start
+
+this should open something in your browser and boom, we have the website
