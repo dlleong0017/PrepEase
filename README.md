@@ -34,3 +34,6 @@ this should open something in your browser and boom, we have the website
     cd server
     npm install mongoose
 this allows you to use javaScript to monipulate mongoose
+npm install mongoose bcrypt
+this allows you to use bcrypt 
+# I recommend you guys to download MongoDB Compass, which will illustrate how your data will added into the database
