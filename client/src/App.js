@@ -1,31 +1,19 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import Login from './Login'
-import Register from './Register'
-
-function Home() {
-  return (
-    <div>
-      <h1>Welcome to PrepEase</h1>
-      <Link to="/reg">
-        <button>Register</button>
-      </Link>
-      <Link to="/login">
-        <button>Login</button>
-      </Link>
-    </div>
-  )
-}
+import React, { useState } from "react";
+import Register from "./Register";
+import Login from "./Login";
 
 function App() {
+  const [showLogin, setShowLogin] = useState(false);
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/reg" element={<Register />} />
-      </Routes>
-    </Router>
-  )
+    <div>
+      <h1>PrepEase</h1>
+      <button onClick={() => setShowLogin(false)}>Register</button>
+      <button onClick={() => setShowLogin(true)}>Login</button>
+      <hr />
+      {showLogin ? <Login /> : <Register />}
+    </div>
+  );
 }
 
-export default App
+export default App;

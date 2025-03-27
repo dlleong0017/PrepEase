@@ -1,27 +1,30 @@
-const express = require("express")
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
+const bcrypt = require("bcrypt");
+const User = require("../models/user");
 
-router.get("/", (req,res) => {
-    res.send("User List")
-})
+router.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+  console.log("Login attempt:", username);
 
-router.post("/", (req,res) => {
-    console.log(req.body.username)
-    res.send("hi")
-})
+  try {
+    const user = await User.findOne({ username });
 
-//dynamic routes
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
 
-    //page for specific user
-    router.route("/:id")
-        .get((req, res) => {
-            res.send(`Get user with ID ${req.params.id}`)
-        })
-        .put((req, res) => {
-            res.send(`Update user with ID ${req.params.id}`)
-        })
-        .delete((req, res) => {
-            res.send(`Delete user with ID ${req.params.id}`)
-        })
+    const passwordMatch = await bcrypt.compare(password, user.password);
 
-module.exports = router
+    if (!passwordMatch) {
+      return res.status(401).send("Incorrect password");
+    }
+
+    res.send("Login successful");
+  } catch (err) {
+    console.error("Login error:", err);
+    res.status(500).send("Internal server error");
+  }
+});
+
+module.exports = router;

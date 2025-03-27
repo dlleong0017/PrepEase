@@ -1,51 +1,51 @@
-import { useState } from 'react'
+import React, { useState } from "react"
 
 function Register() {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    username: '',
-    password: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    username: "",
+    password: ""
   })
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     })
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const response = await fetch("http://localhost:3000/reg", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
+    try {
+      const res = await fetch("http://localhost:3000/reg", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      })
 
-    const result = await response.text()
-    alert(result)
+      const text = await res.text()
+      alert("Registration result: " + text)
+    } catch (err) {
+      alert("Registration failed: " + err.message)
+      console.error("Fetch error:", err)
+    }
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Register</h2>
-      <input name="firstName" placeholder="First Name" onChange={handleChange} />
-      <br />
-      <input name="lastName" placeholder="Last Name" onChange={handleChange} />
-      <br />
-      <input name="email" type="email" placeholder="Email" onChange={handleChange} />
-      <br />
-      <input name="username" placeholder="Username" onChange={handleChange} />
-      <br />
-      <input name="password" type="password" placeholder="Password" onChange={handleChange} />
-      <br />
-      <button type="submit">Register</button>
-    </form>
+    <div>
+      <h2>Register User</h2>
+      <form onSubmit={handleSubmit}>
+        <input name="firstName" placeholder="First Name" onChange={handleChange} required /><br />
+        <input name="lastName" placeholder="Last Name" onChange={handleChange} required /><br />
+        <input name="email" placeholder="Email" type="email" onChange={handleChange} required /><br />
+        <input name="username" placeholder="Username" onChange={handleChange} required /><br />
+        <input name="password" placeholder="Password" type="password" onChange={handleChange} required /><br />
+        <button type="submit">Register</button>
+      </form>
+    </div>
   )
 }
 
