@@ -1,24 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Register from "./Register";
 import Login from "./Login";
 
 function App() {
-  const [showLogin, setShowLogin] = useState(false);
-
   return (
-    <div style={styles.app}>
-      <h1 style={styles.header}>PrepEase</h1>
-      <div style={styles.toggle}>
-      	<button onClick={() => setShowLogin(false)} style={styles.toggleBtn}>
-	  Register
-	 </button>
-      <button onClick={() => setShowLogin(true)} style = {styles.toggleBtn}>
-	Login
-       </button>
-     </div>
-      {showLogin ? <Login /> : <Register />}
-    </div>
+    <Router>
+      <div style={styles.app}>
+        <div style={styles.container}>
+          <h1 style={styles.header}>PrepEase</h1>
+
+          <div style={styles.toggle}>
+            <Link to="/register" style={styles.linkBtn}>Register</Link>
+            <Link to="/login" style={styles.linkBtn}>Login</Link>
+          </div>
+
+          <Routes>
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Landing />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
+}
+
+// 👇 Simple landing component with nothing below the buttons
+function Landing() {
+  return <p style={styles.welcomeText}>Welcome to PrepEase! Ensure you are prepared in the event of disaster.</p>;
 }
 
 const styles = {
@@ -26,16 +36,26 @@ const styles = {
     textAlign: "center",
     backgroundColor: "#f5f5f5",
     minHeight: "100vh",
-    paddingTop: "30px",
+    padding: "30px 20px",
+    boxSizing: "border-box",
+    overflowX: "hidden",
+  },
+  container: {
+    maxWidth: "500px",
+    margin: "0 auto",
+    padding: "20px",
   },
   header: {
     fontSize: "2.5rem",
     marginBottom: "20px",
   },
   toggle: {
+    display: "flex",
+    justifyContent: "center",
+    gap: "20px",
     marginBottom: "20px",
   },
-  toggleBtn: {
+  linkBtn: {
     padding: "10px 20px",
     margin: "0 10px",
     border: "none",
@@ -43,6 +63,13 @@ const styles = {
     backgroundColor: "#007bff",
     color: "white",
     cursor: "pointer",
+    textDecoration: "none",
+    display: "inline-block",
+  },
+  welcomeText: {
+    fontSize: "1.1rem",
+    color: "#555",
+    marginTop: "20px",
   },
 };
 
