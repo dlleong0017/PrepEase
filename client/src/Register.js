@@ -15,9 +15,23 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // submit logic
+  
+    try {
+      const res = await fetch("http://localhost:3000/reg", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form)
+      });
+  
+      const text = await res.text();
+      alert("Registration result: " + text);
+    } catch (err) {
+      alert("Registration failed: " + err.message);
+      console.error("Fetch error:", err);
+    }
   };
-
+  
+  
   return (
     <div style={styles.wrapper}>
       <h2 style={styles.title}>Register</h2>
