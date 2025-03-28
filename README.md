@@ -1,10 +1,10 @@
 # PrepEase
 
-
-
-
 ### starting the program
 clone the repo
+
+### install features
+you want to go to node and mongo websites and download them locally
 
 in the repo folder
 
@@ -30,10 +30,3 @@ open a terminal and go into the client(frontend)
     npm start
 
 this should open something in your browser and boom, we have the website
-
-    cd server
-    npm install mongoose
-this allows you to use javaScript to monipulate mongoose
-npm install mongoose bcrypt
-this allows you to use bcrypt 
-# I recommend you guys to download MongoDB Compass, which will illustrate how your data will added into the database

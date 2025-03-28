@@ -1,6 +1,9 @@
 import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function Register() {
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -34,6 +37,10 @@ function Register() {
     }
   }
 
+  const handleReturn = () => {
+    navigate("/") // adjust this path if your homepage is different
+  }
+
   return (
     <div>
       <h2>Register User</h2>
@@ -44,6 +51,7 @@ function Register() {
         <input name="username" placeholder="Username" onChange={handleChange} required /><br />
         <input name="password" placeholder="Password" type="password" onChange={handleChange} required /><br />
         <button type="submit">Register</button>
+        <button type="button" onClick={handleReturn} style={{ marginLeft: "10px" }}>Return</button>
       </form>
     </div>
   )

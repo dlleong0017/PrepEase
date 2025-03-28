@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"
+
 
 function Login() {
   const [form, setForm] = useState({ username: "", password: "" });
+
+  const navigate = useNavigate()
+  
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -27,6 +32,11 @@ function Login() {
     }
   };
 
+  const handleReturn = () => {
+    navigate("/") // adjust this path if your homepage is different
+  }
+
+
   return (
     <div>
       <h2>Login</h2>
@@ -49,6 +59,7 @@ function Login() {
         />
         <br />
         <button type="submit">Login</button>
+        <button type="button" onClick={handleReturn} style={{ marginLeft: "10px" }}>Return</button>
       </form>
     </div>
   );
