@@ -8,7 +8,11 @@ const app = express();
 // Connect to MongoDB
 mongoose
   //.connect("mongodb://localhost:27017/prepeaseDB")
+<<<<<<< HEAD
   .connect("mongodb://127.0.0.1:27017/prepeaseDB")
+=======
+  mongoose.connect('mongodb://127.0.0.1:27017/mydb')
+>>>>>>> origin/main
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
