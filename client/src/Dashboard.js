@@ -1,8 +1,15 @@
 import React from "react";
 
 function Dashboard() {
+
+  const username = localStorage.getItem("username") || "Guest";
+
   return (
     <div style={styles.wrapper}>
+      <div style={styles.topBar}>
+        <div style={{ flex: 1 }} />
+        <div style={styles.username}>{username} </div>
+      </div>
       <h1 style={styles.title}> Welcome to PrepEase</h1>
       <p style={styles.subtitle}>
         Your personalized emergency dashboard. Choose a disaster type below to begin planning for the unexpected.
@@ -86,7 +93,23 @@ const styles = {
   cardText: {
     fontSize: "1rem",
     color: "#555",
-  }
+  },
+  topBar: {
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    padding: "10px 20px",
+    marginBottom: "20px"
+  },
+  username: {
+    fontSize: "1rem",
+    color: "#222",
+    fontWeight: "600",
+    backgroundColor: "rgba(255, 255, 255, 0.8)",
+    padding: "8px 16px",
+    borderRadius: "20px",
+    boxShadow: "0 2px 6px rgba(0,0,0,0.1)"
+  }  
 };
 
 export default Dashboard;

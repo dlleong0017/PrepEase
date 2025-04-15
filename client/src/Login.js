@@ -20,6 +20,7 @@ function Login() {
       const text = await res.text();
   
       if (res.ok) {
+        localStorage.setItem("username", form.username);
         window.location.href = "/dashboard";
       } else {
         alert("Login failed: " + text);
