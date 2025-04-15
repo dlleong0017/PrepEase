@@ -9,21 +9,26 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       const res = await fetch("http://localhost:3000/user/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-
+  
       const text = await res.text();
-      alert("Login result: " + text);
+  
+      if (res.ok) {
+        window.location.href = "/dashboard";
+      } else {
+        alert("Login failed: " + text);
+      }
     } catch (err) {
       alert("Login failed: " + err.message);
       console.error("Login error:", err);
     }
-  };
+  };  
 
   return (
     <div style={styles.wrapper}>
@@ -46,6 +51,9 @@ function Login() {
           style={styles.input}
           required
         />
+        <p style={styles.forgot}>
+          <a href="#" style={styles.link}>Forgot password?</a>
+        </p>
         <button type="submit" style={styles.button}>Login</button>
       </form>
     </div>
@@ -80,6 +88,16 @@ const styles = {
     border: "1px solid #ccc",
     width: "100%",
     boxSizing: "border-box",
+  },
+  forgot: {
+    textAlign: "right",
+    marginTop: "5px",
+    marginBottom: "10px",
+  },
+  link: {
+    color: "#007bff",
+    fontSize: "0.9rem",
+    textDecoration: "none",
   },
   button: {
     padding: "12px",
