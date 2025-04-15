@@ -4,6 +4,8 @@ import Register from "./Register";
 import Login from "./Login";
 import LandingPage from "./LandingPage";
 import Dashboard from "./Dashboard";
+import ForgotPassword from "./ForgotPassword"; // 顶部添加
+import ResetPassword from "./ResetPassword";
 
 
 function App() {
@@ -14,6 +16,9 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} /> 
+        <Route path="/reset-password" element={<ResetPassword />} />
+
       </Routes>
     </Router>
   );

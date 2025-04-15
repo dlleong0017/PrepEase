@@ -31,15 +31,15 @@ function LandingPage() {
       {/* Info Tiles */}
       <section className="tiles">
         <div className="tile">
-          <h3>Build Emergency Kits</h3>
+          <h3>🧰 Build Emergency Kits</h3>
           <p>Get recommended supplies based on hurricane, wildfire, or power outage scenarios.</p>
         </div>
         <div className="tile">
-          <h3>Custom Checklists</h3>
+          <h3>📝 Custom Checklists</h3>
           <p>Create and store checklists for you, your family, or your organization.</p>
         </div>
         <div className="tile">
-          <h3>Secure Access Anywhere</h3>
+          <h3>🔐 Secure Access Anywhere</h3>
           <p>Access your kits anytime — your checklist is stored securely in the cloud.</p>
         </div>
       </section>

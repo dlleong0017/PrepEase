@@ -28,71 +28,85 @@ function Login() {
       alert("Login failed: " + err.message);
       console.error("Login error:", err);
     }
-  };  
+  };
 
   return (
-    <div style={styles.wrapper}>
-      <h2 style={styles.title}>Login</h2>
-      <form style={styles.form} onSubmit={handleSubmit}>
-        <input
-          name="username"
-          placeholder="Username"
-          value={form.username}
-          onChange={handleChange}
-          style={styles.input}
-          required
-        />
-        <input
-          name="password"
-          placeholder="Password"
-          type="password"
-          value={form.password}
-          onChange={handleChange}
-          style={styles.input}
-          required
-        />
-        <p style={styles.forgot}>
-          <a href="#" style={styles.link}>Forgot password?</a>
-        </p>
-        <button type="submit" style={styles.button}>Login</button>
-      </form>
+    <div style={styles.page}>
+      <div style={styles.card}>
+        <h2 style={styles.title}>Welcome Back 👋</h2>
+        <form style={styles.form} onSubmit={handleSubmit}>
+          <input
+            name="username"
+            placeholder="Username"
+            value={form.username}
+            onChange={handleChange}
+            style={styles.input}
+            required
+          />
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={form.password}
+            onChange={handleChange}
+            style={styles.input}
+            required
+          />
+          <p style={styles.forgot}>
+            <a href="/forgot-password" style={styles.link}>Forgot password?</a>
+          </p>
+          <button type="submit" style={styles.button}>Login</button>
+        </form>
+      </div>
     </div>
   );
 }
 
 const styles = {
-  wrapper: {
-    backgroundColor: "#fff",
-    padding: "30px",
-    borderRadius: "15px",
-    boxShadow: "0 0 10px rgba(0,0,0,0.1)",
+  page: {
+    minHeight: "100vh",
+    background: "linear-gradient(to right, #89f7fe, #66a6ff)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontFamily: "'Segoe UI', sans-serif",
+    padding: "20px",
+  },
+  card: {
+    backgroundColor: "#ffffffee",
+    padding: "50px",
+    borderRadius: "18px",
+    boxShadow: "0 20px 50px rgba(0,0,0,0.1)",
+    maxWidth: "420px",
     width: "100%",
-    maxWidth: "400px",
-    margin: "0 auto",
-    boxSizing: "border-box",
+    transition: "transform 0.3s ease-in-out",
+    animation: "fadeIn 0.6s ease-in-out"
   },
   title: {
-    fontSize: "1.8rem",
-    marginBottom: "20px",
-    fontWeight: "bold",
+    fontSize: "2rem",
+    fontWeight: "700",
+    marginBottom: "30px",
+    textAlign: "center",
+    color: "#333",
   },
   form: {
     display: "flex",
     flexDirection: "column",
-    gap: "10px",
+    gap: "20px"
   },
   input: {
-    padding: "10px",
-    fontSize: "1rem",
-    borderRadius: "8px",
+    padding: "14px",
+    borderRadius: "10px",
     border: "1px solid #ccc",
-    width: "100%",
-    boxSizing: "border-box",
+    fontSize: "1rem",
+    outline: "none",
+    backgroundColor: "#f9f9f9",
+    transition: "border 0.3s",
   },
   forgot: {
     textAlign: "right",
-    marginTop: "5px",
-    marginBottom: "10px",
+    marginTop: "-10px",
+    marginBottom: "15px",
   },
   link: {
     color: "#007bff",
@@ -100,13 +114,16 @@ const styles = {
     textDecoration: "none",
   },
   button: {
-    padding: "12px",
-    backgroundColor: "#007bff",
+    padding: "14px",
+    fontSize: "1rem",
+    fontWeight: "600",
     color: "#fff",
-    fontWeight: "bold",
+    background: "linear-gradient(to right, #43cea2, #185a9d)",
     border: "none",
-    borderRadius: "8px",
+    borderRadius: "12px",
     cursor: "pointer",
+    boxShadow: "0 5px 20px rgba(0,114,255,0.3)",
+    transition: "background 0.3s, transform 0.2s",
   },
 };
 

@@ -9,81 +9,106 @@ function Register() {
     password: "",
   });
 
+  const [message, setMessage] = useState("");
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
       const res = await fetch("http://localhost:3000/reg", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form)
+        body: JSON.stringify(form),
       });
-  
+
       const text = await res.text();
-      alert("Registration result: " + text);
+      setMessage("✅ " + text);
     } catch (err) {
-      alert("Registration failed: " + err.message);
+      setMessage("❌ Registration failed: " + err.message);
       console.error("Fetch error:", err);
     }
   };
-  
-  
+
   return (
-    <div style={styles.wrapper}>
-      <h2 style={styles.title}>Register</h2>
-      <form style={styles.form} onSubmit={handleSubmit}>
-        <input name="firstName" placeholder="First Name" style={styles.input} onChange={handleChange} />
-        <input name="lastName" placeholder="Last Name" style={styles.input} onChange={handleChange} />
-        <input name="email" placeholder="Email" style={styles.input} onChange={handleChange} />
-        <input name="username" placeholder="Username" style={styles.input} onChange={handleChange} />
-        <input name="password" type="password" placeholder="Password" style={styles.input} onChange={handleChange} />
-        <button type="submit" style={styles.button}>Register</button>
-      </form>
+    <div style={styles.page}>
+      <div style={styles.card}>
+        <h2 style={styles.title}>🚀 Create Your Account</h2>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <input name="firstName" placeholder="First Name" style={styles.input} onChange={handleChange} required />
+          <input name="lastName" placeholder="Last Name" style={styles.input} onChange={handleChange} required />
+          <input name="email" placeholder="Email" type="email" style={styles.input} onChange={handleChange} required />
+          <input name="username" placeholder="Username" style={styles.input} onChange={handleChange} required />
+          <input name="password" type="password" placeholder="Password" style={styles.input} onChange={handleChange} required />
+          <button type="submit" style={styles.button}>Register</button>
+        </form>
+        {message && <p style={styles.message}>{message}</p>}
+      </div>
     </div>
   );
 }
 
 const styles = {
-  wrapper: {
-    backgroundColor: "#fff",
-    padding: "30px",
-    borderRadius: "15px",
-    boxShadow: "0 0 10px rgba(0,0,0,0.1)",
+  page: {
+    minHeight: "100vh",
+    background: "linear-gradient(to right, #a1c4fd, #c2e9fb)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontFamily: "'Segoe UI', sans-serif",
+    padding: "20px"
+  },
+  card: {
+    backgroundColor: "#ffffffee",
+    padding: "45px",
+    borderRadius: "18px",
+    boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+    maxWidth: "480px",
     width: "100%",
-    maxWidth: "400px",
-    margin: "0 auto",
-    boxSizing: "border-box",
+    backdropFilter: "blur(10px)"
   },
   title: {
-    fontSize: "1.8rem",
-    marginBottom: "20px",
-    fontWeight: "bold",
+    fontSize: "2rem",
+    fontWeight: "700",
+    marginBottom: "30px",
+    textAlign: "center",
+    color: "#333"
   },
   form: {
     display: "flex",
     flexDirection: "column",
-    gap: "10px",
+    gap: "15px"
   },
   input: {
-    padding: "10px",
-    fontSize: "1rem",
-    borderRadius: "8px",
+    padding: "14px",
+    borderRadius: "10px",
     border: "1px solid #ccc",
-    width: "100%",
-    boxSizing: "border-box",
+    fontSize: "1rem",
+    outline: "none",
+    backgroundColor: "#f9f9f9",
+    boxSizing: "border-box"
   },
   button: {
-    padding: "12px",
-    backgroundColor: "#2979ff",
+    marginTop: "10px",
+    padding: "14px",
+    fontSize: "1rem",
+    fontWeight: "600",
     color: "#fff",
-    fontWeight: "bold",
+    background: "linear-gradient(to right, #43cea2, #185a9d)",
     border: "none",
-    borderRadius: "8px",
+    borderRadius: "12px",
     cursor: "pointer",
+    boxShadow: "0 5px 15px rgba(0,114,255,0.3)",
+    transition: "all 0.3s ease"
+  },
+  message: {
+    marginTop: "20px",
+    textAlign: "center",
+    fontSize: "0.95rem",
+    color: "#333"
   }
 };
 
