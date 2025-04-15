@@ -1,0 +1,187 @@
+/* === Global Wrapper === */
+.landing-wrapper {
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+  min-height: 100vh;
+  padding-bottom: 40px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* === Smooth Entrance Animation === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Navbar === */
+.navbar {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  width: 48px;
+  height: auto;
+  margin-right: 15px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+  transform: rotate(10deg) scale(1.05);
+}
+
+.navbar-title {
+  font-size: 1.9rem;
+  color: #0077b6;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* === Banner === */
+.banner {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  padding: 100px 20px 80px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner::after {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 250px;
+  height: 250px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50%;
+  filter: blur(50px);
+  z-index: 0;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-content h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.banner-content p {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto 35px;
+  color: #e3f2fd;
+}
+
+.auth-card {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  z-index: 2;
+}
+
+/* === Buttons === */
+.banner-btn {
+  text-decoration: none;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.banner-btn.primary {
+  background-color: #fff;
+  color: #0077b6;
+}
+
+.banner-btn.primary:hover {
+  background-color: #dff6ff;
+  transform: translateY(-2px);
+}
+
+.banner-btn.link {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.banner-btn.link:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* === Tiles === */
+.tiles {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 80px 20px;
+  background-color: #f0f4f8;
+}
+
+.tile {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  padding: 35px 25px;
+  width: 320px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.tile::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.1), transparent);
+  transform: rotate(25deg);
+  z-index: 0;
+}
+
+.tile:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+}
+
+.tile h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: #0077b6;
+  font-weight: 700;
+  z-index: 1;
+  position: relative;
+}
+
+.tile p {
+  font-size: 1.05rem;
+  color: #333;
+  z-index: 1;
+  position: relative;
+}
