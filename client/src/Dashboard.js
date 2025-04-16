@@ -5,7 +5,7 @@ function Dashboard() {
     <div style={styles.wrapper}>
       <h1 style={styles.title}> Welcome to PrepEase</h1>
       <p style={styles.subtitle}>
-        Your personalized emergency dashboard. Choose a disaster type below to begin planning for the unexpected.
+        Your personalized emergency dashboard. Choose an option below to continue.
       </p>
       <div style={styles.cardContainer}>
         {cardData.map((card, index) => (
@@ -22,19 +22,25 @@ function Dashboard() {
 const cardData = [
   {
     icon: "🌀",
-    title: "Hurricane Kit",
-    description: "View and edit your hurricane preparedness list."
+    title: "Personal Situation",
+    description: "Add personal details for a personalized checklist."
   },
   {
     icon: "🔥",
-    title: "Wildfire Kit",
-    description: "Build your wildfire checklist tailored to your area."
+    title: "View Checklist",
+    description: "Click here to view your Emergency Checklist."
   },
   {
     icon: "💡",
-    title: "Power Outage Kit",
-    description: "Plan what to do when the lights go out unexpectedly."
+    title: "Export Checklist",
+    description: "Click here to download a pdf or your checklist."
+  },
+  {
+    icon: "💡",
+    title: "Add Personalized Needs",
+    description: "Add unique items that you desire on the checklist."
   }
+
 ];
 
 const styles = {
