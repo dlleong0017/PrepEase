@@ -24,9 +24,13 @@ app.set("view engine", "ejs");
 // Routes
 const regRouter = require("./routes/reg");
 const userRouter = require("./routes/user");
+const quizRouter = require("./routes/quiz");
+
 
 app.use("/reg", regRouter);
 app.use("/user", userRouter);
+app.use("/quiz", quizRouter);
+
 
 // Start server
 app.listen(3000, () => {

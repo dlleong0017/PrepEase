@@ -6,17 +6,22 @@ const userSchema = new mongoose.Schema({
   email: String,
   username: String,
   password: String,
-  attributes: {
-    type: [
-    {
-      key: { type: String, required: true },
-      value: { type: mongoose.Schema.Types.Mixed } 
-    }
-  ],
-  default: []
-}
-});
+  emergencyQuiz: {
+    disasters: [String],
+    medicalEquipment: String,
+    medicalCondition: String,
+    hygieneNeeds: String,
+    homeType: String,
+    floodZone: String,
+    vehicleAccess: String,
+    accessibility: String,
+    hasPets: String,
+    petTypes: [String],
+    petNeeds: String,
+    householdSize: String,
+},
+})
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", userSchema)
 
  
