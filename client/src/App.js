@@ -3,20 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Register from "./Login_Register/Register";
 import Login from "./Login_Register/Login";
 import LandingPage from "./LandingPage";
-<<<<<<< HEAD
-import Dashboard from "./Dashboard";
-import ForgotPassword from "./ForgotPassword"; // 顶部添加
-import ResetPassword from "./ResetPassword";
-import PersonalSituation from './PersonalSituation';
-import ShowChecklist from './ShowChecklist';
-import ExportChecklist from './ExportChecklist';
-import AddNeeds from './AddNeeds';
-=======
 import Dashboard from "./Dashboard/Dashboard";
 import ForgotPassword from "./Login_Register/ForgotPassword"; // 顶部添加
 import ResetPassword from "./Login_Register/ResetPassword";
 
->>>>>>> origin/main
 
 function App() {
   return (
@@ -28,10 +18,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/forgot-password" element={<ForgotPassword />} /> 
         <Route path="/reset-password" element={<ResetPassword />} />
-        <Route path="/personal" element={<PersonalSituation />} />
-        <Route path="/checklist" element={<ShowChecklist />} />
-        <Route path="/export" element={<ExportChecklist />} />
-        <Route path="/add-needs" element={<AddNeeds />} />
+        
       </Routes>
     </Router>
   );

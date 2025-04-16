@@ -86,4 +86,28 @@ router.post("/reset-password", async (req, res) => {
   }
 });
 
+router.post("/save-quiz", async (req, res) => {
+  const { username, quizData } = req.body;
+
+  if (!username || !quizData) {
+    return res.status(400).json({ message: "Missing username or quiz data" });
+  }
+
+  try {
+    const user = await User.findOne({ username });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    user.emergencyQuiz = quizData;
+    await user.save();
+
+    res.status(200).json({ message: "Quiz data saved successfully" });
+  } catch (error) {
+    console.error("Error saving quiz data:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 module.exports = router;

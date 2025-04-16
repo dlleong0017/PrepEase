@@ -17,6 +17,8 @@ function StartPlanning() {
     householdSize: "",
   });
 
+  const username = localStorage.getItem("username");
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
@@ -42,11 +44,32 @@ function StartPlanning() {
     }
   };
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Submitted Quiz:", formData);
-    // TODO: send formData to backend here
+
+    if (!username || username === "Guest") {
+      alert("Please log in to save your quiz.");
+      return;
+    }
+
+    try {
+      const response = await fetch("/quiz/save-quiz", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, quizData: formData }),
+      });
+  
+      const data = await response.json();
+      console.log("Response from server:", data);
+    } catch (error) {
+      console.error("Submission error:", error);
+    }
   };
+  
 
   return (
     <form onSubmit={handleSubmit} className="start-planning-form">
