@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Register from "./Register";
-import Login from "./Login";
+import Register from "./Login_Register/Register";
+import Login from "./Login_Register/Login";
 import LandingPage from "./LandingPage";
-import Dashboard from "./Dashboard";
-import ForgotPassword from "./ForgotPassword"; // 顶部添加
-import ResetPassword from "./ResetPassword";
+import Dashboard from "./Dashboard/Dashboard";
+import ForgotPassword from "./Login_Register/ForgotPassword"; // 顶部添加
+import ResetPassword from "./Login_Register/ResetPassword";
 
 
 function App() {
