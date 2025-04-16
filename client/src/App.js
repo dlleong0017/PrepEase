@@ -7,7 +7,7 @@ import Dashboard from "./Dashboard";
 import ForgotPassword from "./ForgotPassword"; // 顶部添加
 import ResetPassword from "./ResetPassword";
 import PersonalSituation from './PersonalSituation';
-import Checklist from './checklist';
+import ShowChecklist from './ShowChecklist';
 import ExportChecklist from './ExportChecklist';
 import AddNeeds from './AddNeeds';
 
