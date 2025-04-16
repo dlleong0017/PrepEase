@@ -21,7 +21,10 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/forgot-password" element={<ForgotPassword />} /> 
         <Route path="/reset-password" element={<ResetPassword />} />
-
+        <Route path="/personal" element={<PersonalSituation />} />
+        <Route path="/checklist" element={<ShowChecklist />} />
+        <Route path="/export" element={<ExportChecklist />} />
+        <Route path="/add-needs" element={<AddNeeds />} />
       </Routes>
     </Router>
   );

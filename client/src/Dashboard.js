@@ -1,6 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
+  const navigate = useNavigate();
+
+
   return (
     <div style={styles.wrapper}>
       <h1 style={styles.title}> Welcome to PrepEase</h1>
@@ -9,7 +13,7 @@ function Dashboard() {
       </p>
       <div style={styles.cardContainer}>
         {cardData.map((card, index) => (
-          <div key={index} style={styles.card} className="dashboard-card">
+          <div key={index} style={styles.card} className="dashboard-card" onClick={()=>navigate(card.path)}>
             <h3 style={styles.cardTitle}>{card.icon} {card.title}</h3>
             <p style={styles.cardText}>{card.description}</p>
           </div>
@@ -23,22 +27,26 @@ const cardData = [
   {
     icon: "🌀",
     title: "Personal Situation",
-    description: "Add personal details for a personalized checklist."
+    description: "Add personal details for a personalized checklist.",
+    path: "/personal"
   },
   {
     icon: "🔥",
     title: "View Checklist",
-    description: "Click here to view your Emergency Checklist."
+    description: "Click here to view your Emergency Checklist.",
+    path: "/checklist"
   },
   {
     icon: "💡",
     title: "Export Checklist",
-    description: "Click here to download a pdf or your checklist."
+    description: "Click here to download a pdf or your checklist.",
+    path: "/export"
   },
   {
     icon: "💡",
     title: "Add Personalized Needs",
-    description: "Add unique items that you desire on the checklist."
+    description: "Add unique items that you desire on the checklist.",
+    path: "/add-needs"
   }
 
 ];
