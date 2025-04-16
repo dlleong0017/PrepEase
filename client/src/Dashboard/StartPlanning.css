@@ -1,0 +1,108 @@
+/* === Start Planning Form Font & Layout Consistency === */
+
+.start-planning-form {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #333;
+  }
+  
+  .start-planning-form fieldset {
+    border: none;
+    margin-bottom: 25px;
+    padding: 0;
+  }
+  
+  .start-planning-form legend {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #222;
+    font-size: 1.1rem;
+  }
+  
+  .start-planning-form label {
+    display: block;
+    margin: 6px 0;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .start-planning-form input[type="radio"],
+  .start-planning-form input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .start-planning-form select,
+  .start-planning-form input[type="number"] {
+    padding: 6px 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 250px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    font-family: inherit;
+  }
+  
+  .form-submit-button {
+    background-color: #0077b6;
+    color: white;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 20px rgba(0, 119, 182, 0.2);
+    margin-top: 30px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* glow + raise on hover */
+  .form-submit-button:hover {
+    background-color: #0096c7;
+    box-shadow: 0 8px 30px rgba(0, 150, 199, 0.45);
+    transform: translateY(-2px);
+  }
+  
+  /* press-in feel on click */
+  .form-submit-button:active {
+    transform: scale(0.97);
+    box-shadow: 0 4px 12px rgba(0, 119, 182, 0.35);
+  }
+  
+  /* === Stylish Option Boxes === */
+.form-option {
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    margin: 6px 0;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .form-option:hover {
+    background-color: #eef7fb;
+    border-color: #cce7f6;
+  }
+  
+  .form-option input[type="radio"],
+  .form-option input[type="checkbox"] {
+    margin-right: 12px;
+    accent-color: #0077b6;
+    transform: scale(1.2);
+  }
+  
