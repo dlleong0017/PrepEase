@@ -55,7 +55,7 @@ function StartPlanning() {
     }
 
     try {
-      const response = await fetch("/quiz/save-quiz", {
+      const response = await fetch("http://localhost:3000/quiz/save-quiz", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
