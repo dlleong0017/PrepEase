@@ -5,6 +5,7 @@ const User = require("../models/user");
 
 router.post("/save-quiz", async (req, res) => {
   const { username, quizData } = req.body;
+  console.log("Incoming quiz submission:", req.body);
 
   if (!username || !quizData) {
     return res.status(400).json({ message: "Username and quiz data are required." });
@@ -14,7 +15,7 @@ router.post("/save-quiz", async (req, res) => {
     const user = await User.findOne({ username });
     if (!user) return res.status(404).json({ message: "User not found." });
 
-    user.quizData = quizData;
+    user.emergencyQuiz = quizData;
     await user.save();
 
     res.json({ message: "Quiz data saved successfully!" });
