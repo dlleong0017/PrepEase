@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import logo from "../PrepEase_logo.png";
 import "../LandingPage.css";
 import StartPlanning from "./StartPlanning.js"; // adjust path as needed
+import Home from "./Home.js";
+import CreateList from "./CreateList.js";
 
 
 
@@ -27,14 +29,14 @@ function Dashboard() {
             <li onClick={() => setActiveView("start")}>Start Planning</li>
             <li onClick={() => setActiveView("create")}>Create Your List</li>
             <li onClick={() => setActiveView("customize")}>Customize Your Kit</li>
-            <li onClick={() => setActiveView("save")}>Save Your List</li>
+            <li onClick={() => setActiveView("save")}>Save & Access</li>
           </ul>
         </aside>
 
         <main className="main-area">
-          {activeView === "home" && <h1>Stay Prepared</h1>}
+          {activeView === "home" && <Home />}
           {activeView === "start" && <StartPlanning />}
-          {activeView === "create" && <p>Create Your List View</p>}
+          {activeView === "create" && <CreateList username={localStorage.getItem("username")} />}
           {activeView === "customize" && <p>Customize Your Kit View</p>}
           {activeView === "save" && <p>Save Your List View</p>}
         </main>
