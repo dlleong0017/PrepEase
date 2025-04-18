@@ -25,4 +25,68 @@ router.post("/save-quiz", async (req, res) => {
   }
 });
 
+router.get("/checklist/:username", async (req, res) => {
+  try {
+    const user = await User.findOne({ username: req.params.username });
+
+    if (!user || !user.emergencyQuiz) {
+      return res.status(404).json({ message: "User or quiz data not found." });
+    }
+
+    const checklist = generateChecklist(user.emergencyQuiz);
+    res.json({ checklist });
+  } catch (err) {
+    console.error("Error generating checklist:", err);
+    res.status(500).json({ message: "Server error." });
+  }
+});
+
+function generateChecklist(quiz) {
+  const items = [];
+
+  // Base essentials
+  items.push("Water (1 gallon per person per day)");
+  items.push("Non-perishable food (3-day supply)");
+  items.push("Flashlight and extra batteries");
+
+  if (quiz.disasters?.includes("Hurricanes")) {
+    items.push("Hurricane shutters or plywood");
+    items.push("Battery-powered weather radio");
+  }
+
+  if (quiz.disasters?.includes("Wildfires")) {
+    items.push("N95 masks");
+    items.push("Fire extinguisher");
+  }
+
+  if (quiz.disasters?.includes("Floods")) {
+    items.push("Waterproof containers for important documents");
+    items.push("Rain ponchos");
+  }
+
+  if (quiz.medicalEquipment === "Yes") {
+    items.push("Backup battery or generator for medical devices");
+  }
+
+  if (quiz.medicalCondition === "Yes") {
+    items.push("7-day supply of medication");
+    items.push("Copies of prescriptions");
+  }
+
+  if (quiz.hygieneNeeds === "Yes") {
+    items.push("Hygiene products (wipes, soap, sanitizer)");
+    items.push("Feminine hygiene supplies");
+  }
+
+  if (quiz.hasPets === "Yes") {
+    items.push("Pet food and water");
+    items.push("Pet carrier and leash");
+    if (quiz.petNeeds === "Yes") {
+      items.push("Pet medication and special dietary food");
+    }
+  }
+
+  return items;
+}
+
 module.exports = router;
