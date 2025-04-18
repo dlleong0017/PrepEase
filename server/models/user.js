@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
   email: String,
   username: String,
   password: String,
+  additionalCustomizations: [String],
   emergencyQuiz: {
     disasters: [String],
     medicalEquipment: String,
@@ -19,6 +20,7 @@ const userSchema = new mongoose.Schema({
     petTypes: [String],
     petNeeds: String,
     householdSize: String,
+    
 },
 })
 

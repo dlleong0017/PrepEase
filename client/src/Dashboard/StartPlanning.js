@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./StartPlanning.css";
 
-function StartPlanning() {
+function StartPlanning({ switchToHome }) {
   const [formData, setFormData] = useState({
     disasters: [],
     medicalEquipment: "",
@@ -65,6 +65,14 @@ function StartPlanning() {
   
       const data = await response.json();
       console.log("Response from server:", data);
+
+      if (response.ok) {
+        switchToHome();
+        console.log("Should redirect to home.");
+      } else {
+        alert("Something went wrong savign your quiz.");
+      }
+
     } catch (error) {
       console.error("Submission error:", error);
     }
