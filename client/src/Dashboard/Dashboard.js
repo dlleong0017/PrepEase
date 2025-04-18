@@ -5,6 +5,7 @@ import StartPlanning from "./StartPlanning.js"; // adjust path as needed
 import Home from "./Home.js";
 import CreateList from "./CreateList.js";
 import Customize from "./Customize.js";
+import ExportPage from "./ExportPage.js";
 
 
 
@@ -39,7 +40,7 @@ function Dashboard() {
           {activeView === "start" && <StartPlanning switchToHome={() => setActiveView("home")}/>}
           {activeView === "create" && <CreateList username={localStorage.getItem("username")} />}
           {activeView === "customize" && <Customize/>}
-          {activeView === "save" && <p>Save Your List View</p>}
+          {activeView === "save" && <ExportPage/>}
         </main>
       </div>
     </div>
