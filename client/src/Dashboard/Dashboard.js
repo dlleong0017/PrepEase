@@ -4,6 +4,7 @@ import "../LandingPage.css";
 import StartPlanning from "./StartPlanning.js"; // adjust path as needed
 import Home from "./Home.js";
 import CreateList from "./CreateList.js";
+import Customize from "./Customize.js";
 
 
 
@@ -35,9 +36,9 @@ function Dashboard() {
 
         <main className="main-area">
           {activeView === "home" && <Home />}
-          {activeView === "start" && <StartPlanning />}
+          {activeView === "start" && <StartPlanning switchToHome={() => setActiveView("home")}/>}
           {activeView === "create" && <CreateList username={localStorage.getItem("username")} />}
-          {activeView === "customize" && <p>Customize Your Kit View</p>}
+          {activeView === "customize" && <Customize/>}
           {activeView === "save" && <p>Save Your List View</p>}
         </main>
       </div>
