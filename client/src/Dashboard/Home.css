@@ -1,0 +1,58 @@
+.intro-wrapper {
+    padding: 60px 30px;
+    background: radial-gradient(circle at top left, #f0f8ff, #d4f1f9, #f8f9fa);
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+  }
+  
+  .intro-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 50px;
+  }
+  
+  .step-flow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  
+  .step-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 30px 25px;
+    width: 220px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+    transition: transform 0.3s;
+  }
+  
+  .step-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .step-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #0077b6;
+    margin-bottom: 10px;
+  }
+  
+  .step-desc {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.4;
+  }
+  
+  .arrow {
+    font-size: 2rem;
+    color: #333;
+    position: absolute;
+    right: -35px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
