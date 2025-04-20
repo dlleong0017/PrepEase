@@ -57,7 +57,7 @@ function Dashboard() {
 //     icon: "🔥",
 //     title: "Wildfire Kit",
 //     description: "Build your wildfire checklist tailored to your area."
-//   },
+//   }
 //   {
 //     icon: "💡",
 //     title: "Power Outage Kit",
