@@ -4,11 +4,11 @@ import "./ExportPage.css";
 
 function ExportPage() {
   const [checklist, setChecklist] = useState([]);
-  const username = localStorage.getItem("username");
+  const username = localStorage.getItem("username") || "Guest";
 
   useEffect(() => {
     const fetchChecklist = async () => {
-      if (!username || username === "Guest") return;
+      if (username === "Guest") return;
       try {
         const response = await fetch(`http://localhost:3000/quiz/checklist/${username}`);
         const data = await response.json();
@@ -27,23 +27,57 @@ function ExportPage() {
 
   const generatePDF = () => {
     const doc = new jsPDF();
-    doc.setFontSize(18);
-    doc.text("Emergency Checklist", 14, 20);
-    doc.setFontSize(12);
+
+    // Title
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.setTextColor(41, 121, 255);
+    doc.text("PrepEase Emergency Checklist", 20, 25);
+
+    // Divider
+    doc.setDrawColor(200);
+    doc.line(20, 30, 190, 30);
+
+    // User & date
+    const dateStr = new Date().toLocaleDateString();
+    doc.setFontSize(11);
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(100);
+    doc.text(`Generated for: ${username}`, 20, 38);
+    doc.text(`Date: ${dateStr}`, 160, 38, { align: "right" });
+
+    // Checklist
+    let y = 50;
+    doc.setFontSize(13);
+    doc.setTextColor(40);
     checklist.forEach((item, index) => {
-      doc.text(`- ${item}`, 14, 30 + index * 10);
+      if (y > 270) {
+        doc.addPage();
+        y = 20;
+      }
+      doc.text(`• ${item}`, 25, y);
+      y += 10;
     });
-    doc.save("EmergencyChecklist.pdf");
+
+    // Footer
+    doc.setFontSize(10);
+    doc.setTextColor(150);
+    doc.text("Generated with love by PrepEase | www.prepease.com", 105, 285, { align: "center" });
+
+    doc.save("PrepEase_Checklist.pdf");
   };
 
   return (
     <div className="export-container">
-      <h2>Your Emergency Checklist</h2>
+      <h2>📋 PrepEase Export</h2>
+      <p className="export-meta">Generated for: <strong>{username}</strong></p>
+
       <ul className="checklist">
         {checklist.map((item, index) => (
-          <li key={index}>✔ {item}</li>
+          <li key={index}>{item}</li>
         ))}
       </ul>
+
       <button className="export-button" onClick={generatePDF}>
         Download as PDF
       </button>
@@ -52,4 +86,3 @@ function ExportPage() {
 }
 
 export default ExportPage;
- 
