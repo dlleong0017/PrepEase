@@ -1,3 +1,6 @@
+//user.js
+//Handles the structs where user data is input
+
 const mongoose = require("mongoose")
 
 const userSchema = new mongoose.Schema({

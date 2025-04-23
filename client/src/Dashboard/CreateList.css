@@ -36,6 +36,8 @@
     margin-bottom: 10px;
     position: relative;
     padding-left: 28px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 600;
   }
   
   .checklist-card li::before {
@@ -45,4 +47,11 @@
     color: #2979ff;
     font-weight: bold;
   }
-          
+
+  .form-submit-button {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+         

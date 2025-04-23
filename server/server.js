@@ -1,3 +1,6 @@
+//Server
+//Purpose: Connects to MongoDB and establishes important routes
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");

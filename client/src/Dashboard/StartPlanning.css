@@ -1,5 +1,3 @@
-/* === Start Planning Form Font & Layout Consistency === */
-
 .start-planning-form {
     font-family: 'Segoe UI', sans-serif;
     font-size: 1rem;
@@ -29,6 +27,8 @@
     margin: 6px 0;
     font-size: 1rem;
     color: #333;
+    font-weight: 600;
+    font-family: 'Segoe UI', sans-serif;
   }
   
   .start-planning-form input[type="radio"],
@@ -47,6 +47,8 @@
     font-size: 1rem;
     margin-bottom: 10px;
     font-family: inherit;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 600;
   }
   
   .form-submit-button {
@@ -67,42 +69,33 @@
     font-family: 'Segoe UI', sans-serif;
   }
   
-  /* glow + raise on hover */
   .form-submit-button:hover {
     background-color: #0096c7;
     box-shadow: 0 8px 30px rgba(0, 150, 199, 0.45);
     transform: translateY(-2px);
   }
   
-  /* press-in feel on click */
   .form-submit-button:active {
     transform: scale(0.97);
     box-shadow: 0 4px 12px rgba(0, 119, 182, 0.35);
   }
   
-  /* === Stylish Option Boxes === */
-.form-option {
-    display: flex;
-    align-items: center;
-    padding: 10px 14px;
-    margin: 6px 0;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid transparent;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
+  .form-option {
+      display: flex;
+      align-items: center;
+      padding: 10px 14px;
+      margin: 6px 0;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      font-size: 1rem;
+    }
   
   .form-option:hover {
     background-color: #eef7fb;
     border-color: #cce7f6;
   }
-  
-  .form-option input[type="radio"],
-  .form-option input[type="checkbox"] {
-    margin-right: 12px;
-    accent-color: #0077b6;
-    transform: scale(1.2);
-  }
+
   

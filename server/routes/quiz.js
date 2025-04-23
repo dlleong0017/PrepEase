@@ -1,4 +1,6 @@
-// routes/quiz.js
+//Quiz
+//Handles operations related to quiz, handles data that is added to checklist
+
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
@@ -37,11 +39,6 @@ router.get("/get-customizations", async (req, res) => {
   }
 });
 
-
-
-
-
-
 router.post("/save-quiz", async (req, res) => {
   const { username, quizData } = req.body;
   console.log("Incoming quiz submission:", req.body);
@@ -65,23 +62,6 @@ router.post("/save-quiz", async (req, res) => {
     res.status(500).json({ message: "Server error." });
   }
 });
-/*
-router.get("/checklist/:username", async (req, res) => {
-  try {
-    const user = await User.findOne({ username: req.params.username });
-
-    if (!user || !user.emergencyQuiz) {
-      return res.status(404).json({ message: "User or quiz data not found." });
-    }
-
-    const checklist = generateChecklist(user.emergencyQuiz);
-    res.json({ checklist });
-  } catch (err) {
-    console.error("Error generating checklist:", err);
-    res.status(500).json({ message: "Server error." });
-  }
-});
-*/
 
 router.get("/checklist/:username", async (req, res) => {
   try {
@@ -98,8 +78,6 @@ router.get("/checklist/:username", async (req, res) => {
     res.status(500).json({ message: "Server error." });
   }
 });
-
-
 
 function generateChecklist(quiz, additionalCustomizations) {
   const items = [];

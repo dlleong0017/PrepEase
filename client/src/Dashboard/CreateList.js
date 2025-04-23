@@ -1,5 +1,8 @@
+//Create Your List Page
+//Purpose: User gets a preview of the list so that they can add items to it
+
 import React, { useState } from "react";
-import "./CreateList.css"; // import the new styles
+import "./CreateList.css";
 
 function CreateList({ username }) {
   const [checklist, setChecklist] = useState([]);

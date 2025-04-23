@@ -1,12 +1,19 @@
 # PrepEase
 
+### Get Started
 
+Download MongoDB Compass
 
+    https://www.mongodb.com/try/download/compass
 
-### starting the program
-clone the repo
+Download Node.js
 
-in the repo folder
+    https://nodejs.org/en/download
+
+### Starting the program
+Clone the repository
+
+In the terminal once the environment is set up
 
     cd server
     npm install
@@ -14,26 +21,23 @@ in the repo folder
     cd client
     npm install
 
-this installs all of the packages that are necessary so that you have everything
+Install some other programs
 
-### running program
-open a terminal and go into the server(backend)
+    npm install bcrypt mongoose
+
+This step installs all of the packages that are necessary and included in the json package
+
+### Running program
+Open a terminal and go into the server(backend)
 
     cd server
     npm start
 
-this starts the backend
+This starts the backend
 
-open a terminal and go into the client(frontend)
+Open a separate terminal and go into the client(frontend)
 
     cd client
     npm start
 
-this should open something in your browser and boom, we have the website
-
-    cd server
-    npm install mongoose
-this allows you to use javaScript to monipulate mongoose
-npm install mongoose bcrypt
-this allows you to use bcrypt 
-# I recommend you guys to download MongoDB Compass, which will illustrate how your data will added into the database
+This will open the website welcome to PrepEase!
