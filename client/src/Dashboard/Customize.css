@@ -1,17 +1,18 @@
 .customize-container {
-    max-width: 600px;
-    margin: 30px auto;
-    padding: 20px;
-    border: 2px solid #ddd;
-    border-radius: 12px;
-    background-color: #f9f9f9;
-  }
-  
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
   .input-section {
     display: flex;
+    justify-content: center;
     gap: 10px;
-    margin-bottom: 20px;
-  }
+  }  
   
   .input-section input {
     flex: 1;
@@ -50,5 +51,19 @@
     padding: 4px 10px;
     border-radius: 4px;
     cursor: pointer;
+  }
+  
+  .form-input {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 119, 182, 0.1);
+    outline: none;
+    width: 100%;
+    max-width: 300px;
+    background-color: #f1f1f1;
+    color: #333;
   }
   

@@ -1,5 +1,9 @@
+//Customize Your Kit
+//Purpose: User can add attributes they want onto their list
+
 import React, { useState, useEffect } from "react";
 import "./Customize.css";
+
 
 function Customize() {
   const [inputValue, setInputValue] = useState("");
@@ -55,12 +59,13 @@ function Customize() {
     <div className="customize-container">
       <h2>Customize Attributes</h2>
       <div className="input-section">
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Add new attribute..."
-        />
+      <input
+        className="form-input"
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        placeholder="Add new attribute..."
+      />
         <button onClick={handleAdd}>Add</button>
       </div>
       <ul className="customization-list">

@@ -1,38 +1,73 @@
 .export-container {
-    max-width: 600px;
-    margin: auto;
-    padding: 2rem;
-    text-align: center;
-    background: #f9f9f9;
-    border-radius: 10px;
-  }
-  
-  h2 {
-    margin-bottom: 1rem;
-  }
-  
-  .checklist {
-    text-align: left;
-    padding-left: 0;
-    list-style: none;
-  }
-  
-  .checklist li {
-    margin: 0.5rem 0;
-  }
-  
-  .export-button {
-    margin-top: 2rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    background: #0077cc;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .export-button:hover {
-    background: #005fa3;
-  }
-  
+  max-width: 720px;
+  margin: 60px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.export-container h2 {
+  font-size: 2.2rem;
+  color: #1a2b4c;
+  font-weight: 700;
+}
+
+.export-meta {
+  font-size: 1rem;
+  color: #555;
+  margin: 10px 0 30px;
+}
+
+.checklist {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.8;
+  background: #f9fbff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.04);
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.checklist li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 14px;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 600;
+}
+
+.checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #2979ff;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.export-button {
+  padding: 14px 32px;
+  font-size: 1rem;
+  background-color: #2979ff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 4px 12px rgba(41, 121, 255, 0.3);
+}
+
+.export-button:hover {
+  background-color: #1a5fdc;
+  transform: scale(1.05);
+}

@@ -1,0 +1,57 @@
+.checklist-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    padding: 40px 20px;
+    background: linear-gradient(to right, #f2faff, #e9f3ff);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .checklist-card {
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    padding: 40px 60px;
+    max-width: 700px;
+    width: 100%;
+  }
+  
+  .checklist-card h2 {
+    font-size: 1.9rem;
+    color: #1a2b4c;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  .checklist-card ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+  }
+  
+  .checklist-card li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 28px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 600;
+  }
+  
+  .checklist-card li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #2979ff;
+    font-weight: bold;
+  }
+
+  .form-submit-button {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+         

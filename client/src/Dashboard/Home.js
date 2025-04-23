@@ -1,3 +1,6 @@
+//Home
+//Purpose: User gets a preview into the site and where to go
+
 import React from "react";
 import "./Home.css";
 

@@ -1,3 +1,6 @@
+//Start Planning
+//Purpose: User answers a quick quiz for generation
+
 import React, { useState } from "react";
 import "./StartPlanning.css";
 

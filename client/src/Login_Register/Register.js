@@ -36,7 +36,7 @@ function Register() {
   return (
     <div style={styles.page}>
       <div style={styles.card}>
-        <h2 style={styles.title}>🚀 Create Your Account</h2>
+        <h2 style={styles.title}>Create Your Account</h2>
         <form onSubmit={handleSubmit} style={styles.form}>
           <input name="firstName" placeholder="First Name" style={styles.input} onChange={handleChange} required />
           <input name="lastName" placeholder="Last Name" style={styles.input} onChange={handleChange} required />

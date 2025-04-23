@@ -1,9 +1,13 @@
+//User Routes
+//Purpose: Helps with user routes where it is necessary to save data to a user in the databasee
+
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 
-// ✅ 登录功能
+// POST /login
+// Purpose: Authenticate user with username and password
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
   console.log("Login attempt:", username);
@@ -22,7 +26,8 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// ✅ 修改密码（输入旧密码）
+// POST /change-password
+// Purpose: Allow users to change their password if they provide correct credentials
 router.post("/change-password", async (req, res) => {
   const { username, currentPassword, newPassword, confirmPassword } = req.body;
 
@@ -52,7 +57,8 @@ router.post("/change-password", async (req, res) => {
   }
 });
 
-// ✅ 忘记密码身份验证
+// POST /forgot-password
+// Purpose: Verify user identity before allowing password reset
 router.post("/forgot-password", async (req, res) => {
   const { firstName, lastName, email } = req.body;
   try {
@@ -61,14 +67,15 @@ router.post("/forgot-password", async (req, res) => {
       return res.status(404).json({ message: "User not found or info incorrect." });
     }
 
-    return res.json({ message: "User verified." }); // 前端收到这个表示可以跳转
+    return res.json({ message: "User verified." });
   } catch (err) {
     console.error("Forgot password error:", err);
     return res.status(500).json({ message: "Server error: " + err.message });
   }
 });
 
-// ✅ 重设密码（通过邮箱）
+// POST /reset-password
+// Purpose: Reset user password after verification
 router.post("/reset-password", async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -86,6 +93,8 @@ router.post("/reset-password", async (req, res) => {
   }
 });
 
+// POST /save-quiz
+// Purpose: Save user's emergency readiness quiz data to their account
 router.post("/save-quiz", async (req, res) => {
   const { username, quizData } = req.body;
 

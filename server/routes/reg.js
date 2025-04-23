@@ -1,3 +1,6 @@
+//Registration
+//Purpose: Creation of account with hashed password
+
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");

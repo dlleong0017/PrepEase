@@ -1,4 +1,8 @@
+//Create Your List Page
+//Purpose: User gets a preview of the list so that they can add items to it
+
 import React, { useState } from "react";
+import "./CreateList.css";
 
 function CreateList({ username }) {
   const [checklist, setChecklist] = useState([]);
@@ -18,22 +22,24 @@ function CreateList({ username }) {
   };
 
   return (
-    <div className="main-area">
-      <h2>Your Emergency Checklist</h2>
+    <div className="checklist-wrapper">
+      <div className="checklist-card">
+        <h2>Your Emergency Checklist</h2>
 
-      {!generated && (
-        <button className="form-submit-button" onClick={handleGenerate}>
-          {loading ? "Generating..." : "Generate Checklist"}
-        </button>
-      )}
+        {!generated && (
+          <button className="form-submit-button" onClick={handleGenerate}>
+            {loading ? "Generating..." : "Generate Checklist"}
+          </button>
+        )}
 
-      {generated && checklist.length > 0 && (
-        <ul style={{ marginTop: "20px" }}>
-          {checklist.map((item, index) => (
-            <li key={index}> {item}</li>
-          ))}
-        </ul>
-      )}
+        {generated && checklist.length > 0 && (
+          <ul>
+            {checklist.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }

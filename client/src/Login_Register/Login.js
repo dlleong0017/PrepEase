@@ -34,7 +34,7 @@ function Login() {
   return (
     <div style={styles.page}>
       <div style={styles.card}>
-        <h2 style={styles.title}>Welcome Back 👋</h2>
+        <h2 style={styles.title}>Login</h2>
         <form style={styles.form} onSubmit={handleSubmit}>
           <input
             name="username"
